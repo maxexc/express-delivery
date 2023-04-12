@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native';
+import { View, Text, SafeAreaView, Image, TextInput, ScrollView, Platform } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {  
@@ -15,7 +15,7 @@ const HomeScreen = () => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            // headerTitle: "TOAST",
+            // headerTitle: "SEARCH",
             headerShown: false,
         })
     }, [])
@@ -23,7 +23,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className="bg-white pt-8 " >
         {/* Header */}
-        <View className="flex-row pb-3 items-center mx-4 space-x-2">
+          <View className="flex-row pb-3 items-center mx-4 space-x-2">
             <Image
                 source={{
                     uri: "https://payload.cargocollective.com/1/15/494563/13468564/roo-03_1340_c.jpg",
@@ -43,12 +43,18 @@ const HomeScreen = () => {
         </View>
         
         {/* Search */}
-        <View className="flex-row items-center space-x-2 pb-2 mx-4">
-            <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3 rounded-lg">
-                  <MagnifyingGlassIcon color="#00CCBB" size={20} />
+          <View
+              className="flex-row items-center space-x-2 pb-2 mx-4"
+          >
+              <View className="flex-row flex-1 space-x-2 bg-gray-200 p-2 rounded-lg" >
+                  <MagnifyingGlassIcon color="#00CCBB" size={25} />
                 <TextInput                    
                     placeholder='Restaurants and cuisines'
-                    keyboardType='default'                  
+                    placeholderTextColor={'grey'}
+                    style={{ 
+                        fontSize: Platform.OS === 'ios' ? 19 : 18,
+                    }}  
+                    keyboardType='default'    
                 />                
             </View>
             
