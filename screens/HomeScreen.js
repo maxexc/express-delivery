@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, TextInput, ScrollView, Platform } from 'react-native';
+import { View, Text, SafeAreaView, Image, TextInput, ScrollView, Platform, TouchableOpacity } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {  
@@ -39,7 +39,9 @@ const HomeScreen = () => {
                       <ChevronDownIcon size={20} color="#00CCBB" />
                   </Text>
             </View>
-            <UserIcon size={35} color="#00CCBB" />
+            <TouchableOpacity>
+                <UserIcon size={35} color="#00CCBB" />                  
+            </TouchableOpacity>
         </View>
         
         {/* Search */}
@@ -57,8 +59,9 @@ const HomeScreen = () => {
                     keyboardType='default'    
                 />                
             </View>
-            
-            <AdjustmentsVerticalIcon color="#00CCBB" />
+            <TouchableOpacity>
+                <AdjustmentsVerticalIcon color="#00CCBB" />                
+            </TouchableOpacity>
         </View>
         
         {/* Body */}
